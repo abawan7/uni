@@ -1,2 +1,1 @@
-# project-assignment
-Space Shooter Game
+# space-shooter-game
