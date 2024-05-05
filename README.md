@@ -49,21 +49,6 @@ Welcome to my GitHub repository containing all my assignments and lab exercises 
     - Database connections and server-side programming
     - Building dynamic websites
 
-8. **Automata Theory**
-    - Finite State Automata (FSA) and regular languages
-    - Pushdown Automata (PDA) and context-free languages
-    - Turing Machines and computability
-
-9. **Computer Networks**
-    - Network models and protocols
-    - OSI model layers and TCP/IP suite
-    - Network design, security, and management
-
-10. **Database**
-    - Relational database design principles
-    - SQL query writing and optimization
-    - Normalization, ER diagrams, and data modeling
-
 
 ## Contributions
 While the primary purpose of this repository is personal academic learning, I welcome contributions for improvements. Feel free to open an issue or submit a pull request.
