@@ -1,0 +1,263 @@
+Task: 1
+#include <iostream>
+using namespace std;
+template <typename T> class range {
+private:
+T **ptr;
+T ran;
+int row , col;
+public:
+range(){
+row = 0;
+col = 0;
+}
+range (T **arr, int row,int col);
+void shift(T **arr);
+void print();
+};
+
+template <typename T> range<T>::range(T **arr, int r, int c)
+{
+row = r;
+col = c;
+int min ,max;
+for(int i=0; i<r; i++)
+{
+for(int j=0; j<c; j++)
+{
+if (arr[i][j] >= arr[0][0])
+{
+max = arr[i][j];
+}
+if (arr[i][j] <= arr[0][0])
+{
+min = arr[i][j];
+}
+}
+cout<<endl;
+}
+ran = ((max - min)/4)+min;
+cout << "The Range is:\t" << ran <<endl;
+}
+template <typename T> void range<T>::shift(T **arr){
+ptr = new T*[row];
+for (int i = 0; i < col;i++){
+
+ptr[i] = new T[col];
+}
+for (int i = 0; i < row; i++){
+for (int j = 0; j < col; j++){
+ptr[i][j] = arr[i][j];
+}
+}
+}
+template <typename T> void range<T>::print(){
+cout << "After Shifting: " << endl;
+for (int i = 0; i < row; i++){
+for (int j = 0; j < col; j++){
+cout << ptr[i][j] << " ";
+}
+cout << endl;
+}
+}
+int main(){
+int **arr;
+arr = new int *[4];
+for (int i = 0; i < 4; i++){
+arr[i] = new int [4];
+}
+int count = 0;
+for (int i = 0; i < 4;i++){
+for (int j = 0; j< 4;j++){
+arr[i][j] = count;
+count++;
+}
+}
+for (int i = 0; i < 4; i++){
+for (int j = 0; j < 4; j++){
+cout << arr[i][j] << " ";
+}
+cout << endl;
+}
+range<int> a(arr, 4,4);
+char **ch;
+ch = new char *[3];
+for (int i = 0; i < 3; i++){
+ch[i] = new char [3];
+}
+count = 65;
+for (int i = 0; i < 3;i++){
+for (int j = 0; j< 3;j++){
+
+ch[i][j] = (char)count;
+count++;
+cout << (char)ch[i][j] << " ";
+}
+cout << endl;
+}
+range<char> b(ch,3,3);
+a.shift(arr);
+b.shift(ch);
+a.print();
+b.print();
+}
+
+Task: 2
+#include <iostream>
+using namespace std;
+template <typename T>
+T* maximum(T *x, T *y) {
+if(strcmp(x,y) ==1)
+return x;
+else
+return y;
+}
+template <typename T>
+T maximum(T x) {
+x = x+1;
+return x;
+}
+int main ()
+{
+char *first;
+first = new char[10];
+char *second;
+second = new char[10];
+cout << "Enter First Array: \t";
+cin.getline(first,10);
+cout << "Enter Second Array:\t";
+cin.getline(second,10);
+cout << "After Comparison:\t";
+string str;
+str = maximum(first,second);
+for (int i = 0; i < str.length(); i++){
+cout << (char) (str[i] - 32);
+}
+
+cout << endl;
+int a = 1;
+double b = 10.1;
+cout << maximum(a) << endl;
+cout << maximum(b) << endl;
+return 0;
+}
+
+Task: 3
+#include <iostream>
+using namespace std;
+template <class T, int N> class Sequence {
+T memblock [N];
+public:
+void setmember (int x, T value) {
+memblock[x] = value;
+}
+T getmember (int x) {
+return memblock[x];
+}
+};
+
+int main ()
+{
+Sequence <int,5> myints;
+Sequence <double,5> myfloats;
+myints.setmember (0,100);
+myfloats.setmember (3,3.1416);
+cout << myints.getmember(0) << '\n';
+cout << myfloats.getmember(3) << '\n';
+return 0;
+}
+Task: 4
+#include <iostream>
+using namespace std;
+template <typename T>
+
+class tornadoException{
+public:
+tornadoException(){
+cout << "Tornado: Take cover immediately!" << endl;
+}
+tornadoException(T m);
+};
+template <typename T> tornadoException<T>::tornadoException(T m){
+cout << "Tornado is " << m << " Away" << endl;
+}
+int main(){
+string str = "";
+tornadoException <string>();
+tornadoException<int>(5);
+}
+
+Task: 5
+#include <iostream>
+using namespace std;
+class Animal
+{
+public:
+virtual void speak() {
+cout << "Speak Constructor called" << endl;
+}
+virtual ~Animal() {
+cout << "~Animal Destructor called" << endl;
+}
+};
+
+class Dog :public Animal
+{
+public:
+void speak() {
+cout << "Bow Wooh!" << endl;
+}
+~Dog() {
+cout << "Dog Destructor called." << endl;
+}
+};
+
+int main ()
+{
+Animal objAnimal;
+Dog objDog;
+Animal *ptrAnimal = &objAnimal;
+Dog *ptrDog = &objDog;
+objAnimal.speak();
+objDog.speak();
+ptrAnimal->speak();
+ptrDog->speak();
+ptrDog->Animal::speak();
+}
+Task: 6
+#include <iostream>
+using namespace std;
+class Animal
+{
+public:
+virtual void speak() {
+cout << "Speak Constructor called" << endl;
+}
+virtual ~Animal() {
+cout << "~Animal Destructor called" << endl;
+}
+};
+
+class Dog :public Animal
+{
+public:
+void speak() {
+cout << "Bow Wooh!" << endl;
+}
+~Dog() {
+cout << "Dog Destructor called." << endl;
+}
+};
+int main ()
+{
+Animal objAnimal;
+Dog objDog;
+Dog *ptrDog = &objDog;
+
+Animal *ptrAnimal = ptrDog;
+objAnimal.speak();
+objDog.speak();
+ptrAnimal->speak();
+ptrDog->speak();
+ptrDog->Animal::speak();
+}

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module string-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="0" />
+<lines_of_code value="0" level="0" />
+<lines_of_code_per_member_function value="********" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+<weighted_methods_per_class_unity value="0" level="0" />
+<weighted_methods_per_class_visibility value="0" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="5" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+</module_detail>
+<procedural_detail>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>string</name>
+<client_module>
+<name>Complaint</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="123" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="125" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="126" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="127" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="128" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="131" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="131" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="Source.cpp" line="131" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="Source.cpp" line="131" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="Source.cpp" line="131" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="133" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="135" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="136" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="136" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="137" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="137" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="Source.cpp" line="153" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="Source.cpp" line="155" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="Source.cpp" line="156" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="Source.cpp" line="157" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="Source.cpp" line="158" />
+</extent>
+<name>ComplaintStatus</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="104" />
+</extent>
+<extent>
+<description>pass by reference</description>
+<source_reference file="Source.cpp" line="117" />
+</extent>
+<name>Department</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="50" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="59" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="62" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="63" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="63" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="64" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="65" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="67" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="67" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="68" />
+</extent>
+<name>Employee</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="195" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="195" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="195" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="195" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="195" />
+</extent>
+<name>User</name>
+<visible>true</visible>
+<concrete>true</concrete>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="170" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="171" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="172" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="173" />
+</extent>
+<extent>
+<description>has by value</description>
+<source_reference file="Source.cpp" line="174" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="177" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="177" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="180" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="180" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="180" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="180" />
+</extent>
+<extent>
+<description>pass by value</description>
+<source_reference file="Source.cpp" line="180" />
+</extent>
+</client_module>
+<supplier_module>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

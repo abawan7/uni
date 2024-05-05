@@ -1,0 +1,9 @@
+{
+    "name": "fairwalter/cinema",
+    "autoload": {
+        "psr-4": {
+            "Fairwalter\\Cinema\\": "src/"
+        }
+    },
+    "require": {}
+}

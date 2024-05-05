@@ -1,0 +1,150 @@
+Task: 1
+
+#include<iostream>
+using namespace std;
+class Leicecream{
+	int price;
+	int waffer;
+	int scoops;
+public:
+	void scoop(){
+		while (true){
+			cout << "Enter The Number Of Scoops: ";
+			cin >> scoops;
+			if (scoops >= 2 && scoops <= 3){
+				price = scoops * 50;
+				break;
+			}
+			else{
+				cout << "Invalid" << endl;
+			}
+		}
+	}
+	void Total_price(){
+		int a;
+		int b;
+		cout << "1) Vanilla" << endl;
+		cout << "2) Chocolate" << endl;
+		cout << "3) Strawberry" << endl;
+		cout << "4) Mango" << endl;
+		cout << "5) Tutti Fruiti" << endl;
+		cout << "6) Almond Crunch" << endl;
+		cout << "7) Coffee" << endl;
+		cin >> a;
+		if (a == 1){
+			cout << "Enter 1 if you want wafer Else Enter 0: ";
+			cin >> b;
+			if (b == 1){
+				cout << "You vanilla icecream costs: " << price+10 << endl;
+			}
+			else if (b == 0){
+				cout << "You vanilla icecream costs: " << price << endl;
+			}
+		}
+		if (a == 2){
+			cout << "Your chocolate icecream costs: " << scoops * 60 << endl;
+		}
+		if (a == 3){
+			cout << "Your starwberry icecream: " << price << endl;
+		}
+		if (a == 4){
+			cout << "Your mango icecream: " << price << endl;
+		}
+		if (a == 5){
+			cout << "Your Tutti Fruitti icecream: " << price << endl;
+		}
+		if (a == 6){
+			cout << "Your almond icecream: " << price << endl;
+		}
+		if (a == 7){
+			cout << "Your coffee icecream: " << price << endl;
+		}
+	}
+	Leicecream:: ~Leicecream(){
+		cout << "Thank You For Visiting" << endl;
+	}
+
+};
+
+int main(){
+	Leicecream Ice_cream;
+	Ice_cream.scoop();
+	Ice_cream.Total_price();
+	system("pause");
+	return 0;
+}
+
+Task: 2
+#include<iostream>
+using namespace std;
+class Vision
+{
+private:
+	int lenght, width, area;
+	float lenght_1, width_1;
+public:
+	void setlenght();
+	int getlenght();
+	void setwidth();
+	int getwidth();
+	Vision()
+	{
+		setlenght();
+		getlenght();
+		setwidth();
+		getwidth();
+	}
+	Vision(int l, int w)
+	{
+		lenght = l;
+		width = w;
+	}
+	Vision(double l, double w)
+	{
+		lenght_1 = l;
+		width_1 = w;
+	}
+	void Area();
+	void display();
+};
+void Vision::setlenght()
+{
+	cout << "Enter the lenght of the TV " << endl;
+	cin >> lenght;
+}
+int  Vision::getlenght()
+{
+	return lenght;
+}
+void Vision::setwidth()
+{
+	cout << "Enter the width of the TV " << endl;
+	cin >> width;
+}
+int Vision::getwidth()
+{
+	return width;
+}
+void Vision::Area()
+{
+	area = lenght * width;
+}
+void Vision::display()
+{
+	cout << "The Area of the TV is " << area << endl;
+	cout << "The Price of the TV is " << area * 65 << endl;
+}
+int main()
+{
+	Vision obj1;
+	obj1.Area();
+	obj1.display();
+	Vision obj2(6, 6);
+	obj2.Area();
+	obj2.display();
+	Vision obj3(9.23, 2.23);
+	obj3.Area();
+	obj3.display();
+	system("pause");
+	return 0;
+}

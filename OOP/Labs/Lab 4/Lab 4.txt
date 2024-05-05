@@ -1,0 +1,251 @@
+Task#1: 
+
+#include <iostream>
+#include <cstring>
+#include <string.h>
+#include <fstream>
+using namespace std;
+
+char** Allocate_Memory(int& row, int& cols) {
+	char** p;
+	p = new char* [row];
+	for (int i = 0; i < row; i++) {
+		p[i] = new char[cols];
+	}
+	return p;
+}
+
+char** removefromamatrix(char** matrix1, const char rchar, char** matrix2, const int& rows, const int& cols)
+{
+	int count = 0, r = 0, c = 0;
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			matrix2[i][j] = matrix1[i][j];
+		}
+	}
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			if (rchar == matrix2[i][j])
+			{
+				matrix2[i][j] = '-';
+				count = 1;
+				r = i;
+				c = j;
+				break;
+			}
+		}
+		if (count == 1)
+		{
+			break;
+		}
+	}
+	for (int i = c; i < cols - 1; i++)
+	{
+		swap(matrix2[r][i], matrix2[r][i + 1]);
+	}
+	return matrix2;
+}
+
+void Display_Matrix(char** p, const int row, const int col) {
+	cout << "Matrix:" << endl;
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			cout << p[i][j];
+		}
+	}
+}
+
+void DeAllocate_Memory(char** p, const int row) {
+	for (int i = 0; i < row; i++)
+	{
+		delete[] p[i];
+	}
+	delete[] p;
+}
+
+int main() {
+	char **matrix;
+	char** p;
+	char store[100];
+	int r, c;
+	cout << "Enter Row: ";
+	cin >> r;
+	cout << "Enter column: ";
+	cin >> c;
+	fstream myfile;
+	myfile.open("text", ios::out); {
+		cout << "File has created succesfully" << endl;
+		myfile << "AbdullahAwan" << endl;
+		myfile.close();
+	}
+	ifstream Fetch("text", ios::in);
+	while (!myfile.eof()) {
+		myfile.getline(store, 100);
+	}
+	myfile.close();
+	cout << store;
+	p = Allocate_Memory(r, c);
+	matrix = Allocate_Memory(r, c);
+	Display_Matrix(p, r, c);
+	matrix = removefromamatrix(p, 'e', matrix, r, c);
+	DeAllocate_Memory(p, r);
+	system("pause");
+	return 0;
+}
+
+Task#2:
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class student{
+public:
+	char roll_no[100];
+	char name[100];
+	char cnic[100];
+	char degree[100];
+	char address[100];
+	void inputdetails();
+	void outputmydetails();
+};
+
+void student::inputdetails(){
+	cout << "Enter Roll No :";
+	cin.getline (roll_no, 100);
+	cout << "Enter Name: ";
+	cin.getline(name, 100);
+	cout << "Enter Cnic: ";
+	cin.getline(cnic, 100);
+	cout << "Enter Degree: ";
+	cin.getline(degree, 100);
+	cout << "Enter Address: ";
+	cin.getline(address, 100);
+}
+void student::outputmydetails(){
+	cout << "Enter Roll No :" << roll_no << endl;
+	cout << "Enter Name: " << name << endl;
+	cout << "Enter Cnic: " << cnic << endl;
+	cout << "Enter Degree: " << degree << endl;
+	cout << "Enter Address: " << address << endl;
+}
+int main(){
+	student details;
+	details.inputdetails();
+	details.outputmydetails();
+	system("pause");
+	return 0;
+}
+
+
+Task # 3)
+
+#include<iostream>
+using namespace std;
+class Date
+{
+public:
+	int day, year, month;
+	Date()
+	{
+		day = 1;
+		year = 1922;
+		month = 12;
+	}
+	void output();
+	void input(int day, int month, int year);
+	void datesetter();
+	void monthsetter();
+	void yearsetter();
+	int dategetter();
+	int monthgetter();
+	int yeargetter();
+
+
+
+};
+void Date::input(int day1, int month1, int year1)
+{
+	day = day1;
+	month = month1;
+	year = year1;
+}
+void Date::datesetter()
+{
+	int d = 32;
+	while (true)
+	{
+		cout << "Enter the date" << endl;
+		cin >> d;
+		if (d <= 31)
+		{
+			break;
+		}
+		else {
+			cout << "Invalid Input" << endl;
+		}
+	}
+	day = d;
+}
+void Date::monthsetter()
+{
+	int m = 13;
+	while (true)
+	{
+		cout << "Enter the month" << endl;
+		cin >> m;
+		if (m <= 12)
+		{
+			break;
+		}
+		else {
+			cout << "Invalid Input" << endl;
+		}
+	}
+	month = m;
+}
+void Date::yearsetter()
+{
+	int y;
+	cout << "Year: " << endl;
+	cin >> y;
+	year = y;
+}
+
+int Date::dategetter()
+{
+	return day;
+}
+int Date::monthgetter()
+{
+	return month;
+}
+int Date::yeargetter()
+{
+	return year;
+}
+
+void Date::output()
+{
+	cout << day << "/" << month << "/" << year;
+}
+
+int main()
+{
+	int a, b, c;
+	Date date1, xmasDay;
+	date1.output();
+	cout << endl;
+	xmasDay.datesetter();
+	xmasDay.monthsetter();
+	xmasDay.yearsetter();
+	a = xmasDay.dategetter();
+	b = xmasDay.monthgetter();
+	c = xmasDay.yeargetter();
+	xmasDay.output();
+	return 0;
+}

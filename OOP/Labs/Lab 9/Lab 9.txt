@@ -1,0 +1,416 @@
+----------------------------------------------------------------
+Task # 1 Q: 1
+----------------------------------------------------------------
+
+#include<iostream>
+using namespace std;
+
+class DB;
+class DM
+{
+public:
+	DM();
+	void setter();
+	void Display();
+	friend DM operator+(DM, DB);
+	friend DB add(DM, DB);
+private:
+	int m;
+	int cm;
+};
+class DB
+{
+public:
+	DB();
+	void setter();
+	void Display();
+	friend DM operator+(DM, DB);
+	friend DB add(DM, DB);
+private:
+	int feet;
+	float inches;
+};
+
+
+DM::DM() {
+	m = 0;
+	cm = 0;
+}
+
+void DM::setter()
+{
+	cout << "Enter distance in meter: ";
+	cin >> m;
+	cout << "Enter distance in centimeter: ";
+	cin >> cm;
+}
+
+DB::DB() {
+	feet = 0;
+	inches = 0;
+}
+
+void DB::setter()
+{
+	cout << "Enter distance in feet: ";
+	cin >> feet;
+	cout << "Enter distance in inches: ";
+	cin >> inches;
+}
+
+DM operator+(DM A, DB B)
+{
+	DM temp;
+	DB t;
+	temp.m = A.m + A.cm / 100 + B.inches + 0.0254 + B.feet * 0.3048;
+	temp.cm = temp.m * 100;
+	t.feet = temp.m * 3.2808;
+	t.inches = temp.m * 39.37;
+	return temp;
+}
+
+DB add(DM A, DB B) {
+	DM temp;
+	DB t;
+	temp.m = A.m + A.cm / 100 + B.inches + 0.0254 + B.feet * 0.3048;
+	temp.cm = temp.m * 100;
+	t.feet = temp.m * 3.2808;
+	t.inches = temp.m * 39.37;
+	return t;
+}
+
+void DB::Display()
+{
+	cout << "Distance in feet is:\t" << feet << endl;
+	cout << "Distance in inches is\t: " << inches << endl;
+}
+
+void DM::Display()
+{
+	cout << "Distance in meters is:\t" << m << endl;
+	cout << "Distance in cm is:\t" << cm << endl;
+}
+
+void main()
+{
+	DM A;
+	A.setter();
+	DB B;
+	B.setter();
+
+	cout << "\n--------------------------" << endl << endl;
+
+	DM c;
+	c = A+B;
+	c.Display();
+	B.Display();
+
+	cout << "\n--------------------------" << endl << endl;
+
+	DB a;
+	a = add(A, B);
+	a.Display();
+	A.Display();
+}
+
+
+----------------------------------------------------------------
+Task # 1 Q: 2
+----------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+class Integer
+{
+public:
+	Integer(int);
+	void setter();
+	friend int largest(Integer);
+	friend int smallest(Integer);
+	friend void repeated(Integer);
+	friend void ascending(Integer);
+	friend void Display(Integer);
+	~Integer();
+
+private:
+	int* n;
+	int size;
+};
+
+Integer::Integer(int s)
+{
+	size = s;
+	n = new int[size];
+}
+
+void Integer::setter() {
+	for (int i = 0; i < size; i++) {
+		cin >> n[i];
+	}
+}
+
+int largest(Integer I) {
+	int l = I.n[0];
+	for (int i = 0; i < I.size; i++) {
+		if (l < I.n[i]) {
+			l = I.n[i];
+		}
+	}
+	return l;
+}
+
+int smallest(Integer I) {
+	int c = I.n[0];
+	for (int i = 0; i < I.size; i++) {
+		if (c > I.n[i]) {
+			c = I.n[i];
+		}
+	}
+	return c;
+}
+
+void repeated(Integer I) {
+	int count = 0;
+	int l;
+	for (int i = 0; i < I.size; i++) {
+		count = 0;
+		for (int j = 0; j < I.size; j++) {
+			if (i != j) {
+				if (I.n[i] == I.n[j]) {
+					count++;
+				}
+			}
+		}
+		l = I.n[i];
+		if (count != 0) {
+			cout << I.n[i] << " is occuring  " << count << "  Times" << endl;
+		}
+	}
+}
+
+void ascending(Integer I) {
+	int temp;
+	for (int i = 0; i < I.size; i++) {
+		for (int j = i + 1; j < I.size; j++) {
+			if (I.n[i] > I.n[j]) {
+				temp = I.n[i];
+				I.n[i] = I.n[j];
+				I.n[j] = temp;
+			}
+		}
+	}
+}
+
+void Display(Integer I) {
+	for (int i = 0; i < I.size; i++) {
+		cout << I.n[i] << " ";
+	}
+}
+Integer::~Integer()
+{
+	for (int i = 0; i < size; i++) {
+		n[i];
+	}
+}
+
+int main() {
+	int size;
+	cout << "Enter the Size of Array: ";
+	cin >> size;
+	Integer I(size);
+	I.setter();
+	cout << "The Largest Number in Array: " << largest(I) << endl;
+	cout << "The Smallest Number in Array: " << smallest(I) << endl;
+	repeated(I);
+	ascending(I);
+	Display(I);
+}
+
+
+----------------------------------------------------------------
+Task # 2 Q: 3
+----------------------------------------------------------------
+
+#include <iostream>
+using namespace std;
+
+class Polynomial
+{
+public:
+	Polynomial(int, int[], int[]);
+	void Display();
+	friend ostream& operator<<(ostream& ,Polynomial);
+	Polynomial operator ++();
+	Polynomial operator ++(int);
+	friend bool operator != (Polynomial, Polynomial);
+	Polynomial operator + (Polynomial);
+	Polynomial add(const Polynomial);
+	~Polynomial();
+
+private:
+	int totalterm;
+	int* coef;
+	int* exp;
+};
+
+Polynomial::Polynomial(int t, int c[], int e[]) {
+	totalterm = t;
+	coef = new int[t];
+	exp = new int[t];
+	for (int i = 0; i < totalterm; i++) {
+		coef[i] = c[i];
+		exp[i] = e[i];
+	}
+}
+
+Polynomial Polynomial:: operator ++() {
+	for (int i = 0; i < totalterm; i++) {
+		++coef[i];
+	}
+	return *this;
+}
+
+Polynomial Polynomial:: operator ++(int) {
+	for (int i = 0; i < totalterm; i++) {
+		coef[i]++;
+	}
+	return *this;
+}
+
+bool operator != (Polynomial P1, Polynomial P2) {
+	if (P1.totalterm == P2.totalterm) {
+		for (int i = 0; i < P1.totalterm; i++) {
+			if (P1.coef[i] != P2.coef[i] && P1.exp[i] != P2.exp[i]) {
+				cout << "Not Equal    ";
+				return true;
+			}
+			else {
+				cout << "Equal    ";
+				return false;
+			}
+		}
+	}
+	else {
+		return true;
+	}
+}
+
+Polynomial Polynomial::operator + (Polynomial  obj) {
+	bool flag = false;
+	int size = (sizeof(obj.coef) + sizeof(obj.coef[0])) + sizeof(coef) + sizeof(coef[0]);
+	int* c = new int[size];
+	int* e = new int[size];
+	for (int i = 0; i < size; i++) {
+		c[i] = 0;
+		e[i] = 0;
+	}
+	Polynomial temp(6, c, e);
+	int k = 0;
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (exp[i] == obj.exp[j]) {
+				k++;
+				temp.coef[k] = coef[i] + obj.coef[i];
+				temp.exp[k] = exp[i];
+				k++;
+				flag = true;
+			}
+		}
+		if (flag == false) {
+			temp.coef[k] = coef[i];
+			temp.exp[k] = exp[i];
+			k++;
+			temp.coef[k] = obj.coef[i];
+			temp.exp[k] = obj.exp[i];
+		}
+		flag = false;
+	}
+	temp.coef[k] = obj.coef[2];
+	temp.exp[k] = obj.exp[2];
+	return temp;
+}
+
+Polynomial Polynomial::add(const Polynomial  obj) {
+	int* c = new int[obj.totalterm];
+	int* e = new int[obj.totalterm];
+	for (int i = 0; i < obj.totalterm; i++) {
+		c[i] = 0;
+		e[i] = 0;
+	}
+	Polynomial temp(3, c, e);
+	for (int i = 0; i < obj.totalterm; i++) {
+		temp.coef[i] = obj.coef[i] + 2;
+		temp.exp[i] = obj.exp[i] + 2;
+	}
+
+	return temp;
+}
+
+ostream& operator<<(ostream& a, Polynomial obj){
+	int x = 0;
+	for (int i = 0; i < obj.totalterm; i++) {
+		if (obj.coef[i] != 0 || obj.exp[i] != 0) {
+			a << obj.coef[i] << "x^" << obj.exp[i] << "   ";
+		}
+	}
+	a << endl;
+	return a;
+}
+
+void Polynomial:: Display () {
+	for (int i = 0; i < totalterm; i++) {
+		if (coef[i] != 0 || exp[i] != 0) {
+			cout << coef[i] << "x^" << exp[i] << "   ";
+		}
+	}
+	cout << endl;
+}
+
+Polynomial::~Polynomial()
+{
+}
+
+int main() {
+	bool flag;
+	int c_P1[] = { 1,2,5 };
+	int e_P1[] = { 4,2,0 };
+	int c_P2[] = { 4,3 };
+	int e_P2[] = { 6,2 };
+	Polynomial P1(3, c_P1, e_P1);
+	Polynomial P2(2, c_P2, e_P2);
+
+	cout << "P1 =\t";
+	P1.Display();
+	cout << "P2 =\t";
+	P2.Display();
+
+	cout << "\n---------------------------" << endl << endl;
+	Polynomial P3 = P2 + P1;
+	cout << "After Performing + operation:\t";
+	P3.Display();
+
+	cout << "\n---------------------------" << endl << endl;
+	P3 = P3.add(P1);
+	cout << "After Adding 2 in coeffient & exponents:\t";
+	P3.Display();
+
+	cout << "\n---------------------------" << endl << endl;
+	cout << "P1 After Post Increment:\t";
+	cout << P1++ << endl;
+	cout << "P1 Value:\t";
+	cout << P1 << endl;
+	cout << "P2 After Post Increment:\t";
+	cout << ++P1 << endl;
+	cout << "P1 Value:\t";
+	cout << P1 << endl;
+
+
+	cout << "\n---------------------------" << endl << endl;
+	if (P1 != P2) {
+		cout << "P1 Is Not Equal Io P2" << endl;
+	}
+	else {
+		cout << "P1 Is Equal To P2" << endl;
+	}
+}

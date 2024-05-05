@@ -1,0 +1,12 @@
+{
+    "name": "cricket/simulation",
+    "autoload": {
+        "psr-4": {
+            "Cricket\\Simulation\\": "src/"
+        }
+    },
+    "require": {
+        "ext-pdo": "*",
+        "ext-mysqli": "*"
+    }
+}

@@ -1,0 +1,122 @@
+#include <iostream>
+using namespace std;
+
+class person {
+protected:
+  string person_name;
+
+public:
+  person(string pname) : person_name(pname) {}
+  void displayInfo() { cout << "Name: " << person_name << endl; }
+};
+
+class student : virtual public person {
+protected:
+  string edu_degree;
+
+public:
+  student(string pname, string degreeVal) : person(pname), edu_degree(degreeVal) {}
+  void displayInfo() override {
+    person::displayInfo();
+    cout << "Degree: " << edu_degree << endl;
+  }
+};
+
+class teacher : virtual public person {
+protected:
+  string job_title;
+
+public:
+  teacher(string pname, string title) : person(pname), job_title(title) {}
+  void displayInfo() override {
+    person::displayInfo();
+    cout << "Designation: " << job_title << endl;
+  }
+};
+
+class TA : public student, public teacher {
+private:
+  int monthly_salary;
+
+public:
+  TA(string pname, string degreeVal, string title, int salVal)
+      : person(pname), student(pname, degreeVal), teacher(pname, title), monthly_salary(salVal) {}
+  void displayInfo() override {
+    student::displayInfo();
+    cout << "Designation: " << job_title << endl;
+    cout << "Salary: $" << monthly_salary << endl;
+  }
+};
+
+int main() {
+  student s1("Aslam", "BSCS");
+  teacher t1("Zahid", "Assistant Professor");
+  TA ta1("Nasir", "BSEE", "TA", 1000);
+
+  s1.displayInfo();
+  t1.displayInfo();
+  ta1.displayInfo();
+
+  return 0;
+}
+#include <iostream>
+using namespace std;
+
+class person {
+protected:
+  string person_name;
+
+public:
+  person(string pname) : person_name(pname) {}
+  void displayInfo() { cout << "Name: " << person_name << endl; }
+};
+
+class student : virtual public person {
+protected:
+  string edu_degree;
+
+public:
+  student(string pname, string degreeVal) : person(pname), edu_degree(degreeVal) {}
+  void displayInfo() override {
+    person::displayInfo();
+    cout << "Degree: " << edu_degree << endl;
+  }
+};
+
+class teacher : virtual public person {
+protected:
+  string job_title;
+
+public:
+  teacher(string pname, string title) : person(pname), job_title(title) {}
+  void displayInfo() override {
+    person::displayInfo();
+    cout << "Designation: " << job_title << endl;
+  }
+};
+
+class TA : public student, public teacher {
+private:
+  int monthly_salary;
+
+public:
+  TA(string pname, string degreeVal, string title, int salVal)
+      : person(pname), student(pname, degreeVal), teacher(pname, title), monthly_salary(salVal) {}
+  void displayInfo() override {
+    student::displayInfo();
+    cout << "Designation: " << job_title << endl;
+    cout << "Salary: $" << monthly_salary << endl;
+  }
+};
+
+int main() {
+  student s1("Aslam", "BSCS");
+  teacher t1("Zahid", "Assistant Professor");
+  TA ta1("Nasir", "BSEE", "TA", 1000);
+
+  s1.displayInfo();
+  t1.displayInfo();
+  ta1.displayInfo();
+
+  return 0;
+}

@@ -1,0 +1,303 @@
+#include<iostream>
+#include<string.h>
+#include<string>
+using namespace std;
+class Employee
+{
+public:
+	Employee(string name, int empid)
+	{
+		this->name = name;
+		this->empid = empid;
+	}
+protected:
+	string name;
+	int empid;
+};
+class Peremp :public Employee
+{
+public:
+	Peremp(string name, int empid, int hourlyincome) :Employee(name, empid){
+		this->hourlyincome = hourlyincome;
+	}
+	string getname()
+	{
+		return name;
+	}
+	int getid()
+	{
+		return empid;
+	}
+	void print(int a)
+	{
+		cout << "The name of the Employee " << getname() << endl;
+		cout << "Your empId is " << getid() << endl;
+		cout << "Your total income is " << hourlyincome*a;
+	}
+	~Peremp();
+
+private:
+	int hourlyincome;
+};
+Peremp::~Peremp()
+{
+}
+class hourlyemp :public Employee
+{
+public:
+	hourlyemp(string name, int empid, int hourlyincome) :Employee(name, empid){
+		this->hourlyincome = hourlyincome;
+	}
+	~hourlyemp();
+	string getname()
+	{
+		return name;
+	}
+	int getid()
+	{
+		return empid;
+	}
+	void print(int a)
+	{
+		cout << "The name of the Employee " << getname() << endl;
+		cout << "Your empId is " << getid() << endl;
+		cout << "Your total income is " << hourlyincome*a;
+	}
+private:
+	int hourlyincome;
+};
+hourlyemp::~hourlyemp()
+{
+}
+class Bankaccount
+{
+public:
+	Bankaccount(int accountid, int balance);
+	~Bankaccount();
+protected:
+	int accountid;
+	int balance;
+};
+Bankaccount::Bankaccount(int accountid, int balance)
+{
+	this->accountid = accountid;
+	this->balance = balance;
+}
+Bankaccount::~Bankaccount()
+{
+}
+class Savingaccount :public Bankaccount
+{
+public:
+	Savingaccount(int accountid, int balance, int amount) :Bankaccount(accountid, balance)
+	{
+		this->amount = amount;
+	}
+	~Savingaccount();
+	int balanceinquiry()
+	{
+		return balance;
+	}
+	void withdraw()
+	{
+		int ammountwith;
+		cout << "Enter the ammount you want to withdraw " << endl;
+		cin >> ammountwith;
+		if (balance - ammountwith >= 10000)
+		{
+			balance = balance - ammountwith;
+			cout << "Amount withdrawn " << endl;
+			cout << "Your current balance is " << balance << endl;
+		}
+		else
+		{
+			cout << "Bhai jan thoray account may paisay dahlou " << endl;
+		}
+	}
+	void addamount()
+	{
+		cout << "Enter the amount you want to add" << endl;
+		cin >> amount;
+		balance = balance + amount;
+		cout << "The current Balance " << balance << endl;
+	}
+private:
+	int amount;
+};
+Savingaccount::~Savingaccount()
+{
+}
+class Currentaccount :public Bankaccount
+{
+public:
+	Currentaccount(int accountid, int balance, int amount) :Bankaccount(accountid, balance)
+	{
+		this->amount = amount;
+	}
+	~Currentaccount();
+	int balanceinquiry()
+	{
+		return balance;
+	}
+	void withdraw()
+	{
+		int ammountwith;
+		cout << "Enter the ammount you want to withdraw " << endl;
+		cin >> ammountwith;
+		if (balance - ammountwith >= 5000)
+		{
+			balance = balance - ammountwith;
+			cout << "Amount withdrawn " << endl;
+			cout << "Your current balance is " << balance << endl;
+		}
+		else
+		{
+			cout << "Bhai jan thoray account may paisay dahlou " << endl;
+		}
+	}
+	void addamount()
+	{
+		cout << "Enter the amount you want to add" << endl;
+		cin >> amount;
+		balance = balance + amount;
+		cout << "The current Balance " << balance << endl;
+	}
+private:
+	int amount;
+};
+Currentaccount::~Currentaccount()
+{
+}
+class Person1
+{
+public:
+	Person1(string name, int yearofbirth);
+	~Person1();
+
+protected:
+	string name;
+	int yearofbirth;
+};
+
+Person1::Person1(string name, int yearofbirth)
+{
+	this->name = name;
+	this->yearofbirth = yearofbirth;
+}
+
+Person1::~Person1()
+{
+}
+class Student :public Person1
+{
+public:
+	Student(string name, int yearofbirth, int stuid, int enroledsem) :Person1(name, yearofbirth)
+	{
+		this->stuid = stuid;
+		this->enroledsem = enroledsem;
+	}
+	void print()
+	{
+		cout << "The name of the student is " << name << endl;
+		cout << "The id of the student is " << stuid << endl;
+		cout << "The enrolled sem is " << enroledsem << endl;
+		cout << "The year of the birth is " << endl;
+	}
+	~Student();
+
+private:
+	int stuid;
+	int enroledsem;
+};
+class Employee1 : public Person1
+{
+protected:
+	int joiningyear;
+	int EmployeeID;
+	string jobtitle;
+	int courseID;
+	string courseTitle;
+public:
+
+	Employee1(int joiningyear, int EmployeeID, string jobtitle, int courseID, string courseTitle, string name, int by) :Person1(name, by)
+	{
+		this->joiningyear = joiningyear;
+		this->EmployeeID = EmployeeID;
+		this->jobtitle = jobtitle;
+		this->courseID = courseID;
+		this->courseTitle = courseTitle;
+	}
+	void print()
+	{
+		cout << "The joining year is " << joiningyear << endl;
+		cout << "The Employee id is " << EmployeeID << endl;
+		cout << "The jobtitle is " << jobtitle << endl;
+		cout << "The course id is " << courseID << endl;
+		cout << "The Coursetitle is " << courseTitle << endl;
+	}
+};
+class Administration :public Employee1
+{
+public:
+	Administration(int joiningyear, int EmployeeID, string jobtitle, int courseID, string courseTitle, string name, int by) :Employee1(joiningyear, EmployeeID,jobtitle,courseID,courseTitle,name,by)
+	{
+		this->joiningyear = joiningyear;
+		this->EmployeeID = EmployeeID;
+		this->jobtitle = jobtitle;
+		this->courseID = NULL;
+		this->courseTitle = nullptr;
+	}
+	void print()
+	{
+		cout << "The joining year is " << joiningyear << endl;
+		cout << "The Employee id is " << EmployeeID << endl;
+		cout << "The jobtitle is " << jobtitle << endl;
+		cout << "The course id is " << courseID << endl;
+		cout << "The Coursetitle is " << courseTitle << endl;
+	}
+	string getjobtitle()
+	{
+		return jobtitle;
+	}
+	~Administration();
+
+private:
+
+};
+
+int main()
+{
+	string name;
+	cout << "======For hourlyemployee======" << endl;
+	cout << "Enter the name of the employee" << endl;
+	cin >> name;
+	hourlyemp pi(name, 10, 150);
+	int a;
+	cout << "Enter the hour you worked " << endl;
+	cin >> a;
+	pi.print(a);
+	cout << endl;
+	cout << "======For Permenentemployee======" << endl;
+	cout << "Enter the name of the employee" << endl;
+	cin >> name;
+	Peremp p(name, 16, 160);
+	cout << "Enter the hour you worked " << endl;
+	cin >> a;
+	p.print(a);
+	cout << endl;
+	cout << "=======================================================================" << endl;
+	cout << "Question no 2" << endl;
+	Currentaccount op(10, 2500, 10);
+	op.withdraw();
+	op.addamount();
+	op.withdraw();
+	cout << "=======================================================================" << endl;
+	cout << "Question no 3" << endl;
+	string b = "vehlay";
+	string c = "Yoo";
+	string v = "Ali";
+	Administration l(2012, 15, b, 56, c, v, 2000);
+	l.print();
+	system("pause");
+	return 0;
+}

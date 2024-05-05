@@ -1,0 +1,232 @@
+Exercise # 1
+
+#include <iostream>
+using namespace std;
+
+class Person {
+private:
+    string Full_name;
+    int height;
+public:
+
+    Person(string name, int h) {
+        Full_name = name;
+        height = h;
+    }
+    virtual void print_info() {
+        cout << "Name: " << Full_name << endl;
+        cout << "Height: " << height << endl;
+    }
+    virtual ~Person() {
+        cout << "Person Destructor Called" << endl;
+    }
+};
+
+// Derived class
+class Employee : public Person {
+private:
+    string department;
+    int id;
+public:
+    Employee(string name, int height, string d, int i_d) : Person(name, height) {
+        department = d;
+        id = i_d;
+    }
+    void print_info() {
+        cout << "Department: " << department << endl;
+        cout << "ID: " << id << endl;
+    }
+    ~Employee(){
+        cout << "Employee Destructor Called" << endl;
+    }
+
+};
+
+// Derived class
+class Student : public Person {
+private: 
+    string school_name;
+public:
+    Student(string name, int height, string SchoolName) : Person(name, height) {
+        school_name = SchoolName;
+    }
+    void print_info() {
+        cout << "School Name: " << school_name  << endl;
+    }
+    ~Student() {
+        cout << "Student Destructor Called" << endl;
+    }
+};
+
+int main() {
+    Person *e = new Employee("Abdullah Awan" , 173,"CS", 1);
+    Person* s = new Student("Sonia Anjum", 141, "Fast School System");
+    e->print_info();
+    s->print_info();
+    e->~Person();
+    s->~Person();
+}
+
+
+------------------------------------------------
+Exercise # 2:
+
+#include<iostream>
+using namespace std;
+
+class Animal
+{
+public:
+	virtual void speak() {
+		cout << "Speak Constructor called" << endl;
+	}
+	virtual ~Animal() {
+		cout << "~Animal Destructor called" << endl;
+	}
+};
+
+
+class Dog :public Animal
+{
+public:
+	void speak() {
+		cout << "Bow Wooh!" << endl;
+	}
+	~Dog() {
+		cout << "Dog Destructor called." << endl;
+	}
+};
+
+class Cat :public Animal
+{
+public:
+	void speak() {
+		cout << "Meaaaaoh" << endl;
+	}
+	~Cat() {
+		cout << "~Cat Destructor called." << endl;
+	}
+};
+
+
+int main()
+{
+	Animal* myPets[2];
+	Animal objAnimal;
+	Dog objDog;
+	Animal* ptrAnimal = &objAnimal;
+	Dog* ptrDog = &objDog;
+	Cat whisker;
+	Dog mutley;
+	Dog lassie;
+	Animal* myPet = &lassie;
+	ptrDog->Animal::speak();
+	objAnimal.speak();
+	objDog.speak();
+	ptrAnimal->speak();
+	ptrDog->speak();
+ 	myPet->speak();
+	myPets[0] = &whisker;
+	myPets[1] = &mutley;
+	myPets[0]->speak();
+	myPets[1]->speak();
+	myPets[0]->speak();
+	myPets[1]->speak();
+	myPets[0]->~Animal();
+	myPets[1]->~Animal();
+}
+
+
+
+
+
+------------------------------------------------
+
+Exercise # 7
+
+#include<iostream>
+using namespace std;
+class person
+{
+public:
+	person(string name, int height);
+	~person();
+	virtual void printinfo()
+	{
+
+	}
+protected:
+	string full_name;
+	int age;
+};
+
+person::person(string name, int height)
+{
+	this->full_name = name;
+	this->age = height;
+}
+
+person::~person()
+{
+	cout << "Person Destructor Called" << endl;
+}
+class paitent :public person
+{
+protected:
+	string die_type;
+	string re_cmed;
+public:
+	paitent(string name, int age, string dietype, string recmed) :person(name, age)
+	{
+		die_type = dietype;
+		recmed = recmed;
+	}
+	~paitent();
+	void printinfo()
+	{
+		cout << "Name:" << full_name << endl;
+		cout << "Age:" << age << endl;
+		cout << "Dieseasetype:" << die_type << endl;
+		cout << "Recomended Med:" << re_cmed << endl;
+	}
+};
+paitent::~paitent()
+{
+	cout << "Paitent Destructor Called" << endl;
+}
+class Medicarepatient :public paitent
+{
+private:
+	string Noh;
+	string NOW;
+	int room_number;
+public:
+	Medicarepatient(string name, int age, string dietype, string recmed, string noh, string now, int roomno) :paitent(name, age, dietype, recmed)
+	{
+		Noh = noh;
+		NOW = now;
+		room_number = roomno;
+	}
+	void printinfo()
+	{
+		cout << "Name: " << full_name << endl;
+		cout << "Age: " << age << endl;
+		cout << "Dieseasetype:" << die_type << endl;
+		cout << "Recomended Med: " << re_cmed << endl;
+		cout << "Room Number: " << room_number << endl;
+		cout << "Name of Ward: " << NOW << endl;
+		cout << "Name of hospital: " << Noh << endl;
+	}
+};
+int main()
+{
+	person** p;
+	p = new person * [2];
+
+	p[0] = new paitent("Yusra", 19, "Allah Ka Shukar", "Ali");
+
+	p[1] = new Medicarepatient("Abdullah Awan", 21, "Allah Ka Shukar", "Ali", "Sweet Home", "Operation", 9);
+	p[0]->printinfo();
+	cout << endl;
+	p[1]->printinfo();
+}

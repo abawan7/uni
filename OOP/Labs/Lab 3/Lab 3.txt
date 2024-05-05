@@ -1,0 +1,288 @@
+﻿Problem # 1:
+
+
+#include<iostream>
+using namespace std;
+
+
+void Intersection(int* b, int* c, int s, int *a)
+{
+        int count = 0;
+        for (int i = 0; i < s; i++)
+        {
+                for (int j = 0; j < s; j++)
+                {
+                        if (b[i] == c[j])
+                        {
+                                a[count] = c[j];
+                                count++;
+                        }
+                }
+        }
+}
+
+
+int main()
+{
+        int size = 5, ** arr;
+        int *A = new int[size];
+        int *B = new int[size];
+        int *C = new int[size];
+        int *a = new int[size];
+        arr = new int*[size];
+
+
+        for (int i = 0; i < size; i++)
+        {
+                arr[i] = new int[size];
+        }
+        for (int i = 0; i < size; i++)
+        {
+                cout << "Enter the number in the array" << endl;
+                cin >> A[i];
+        }
+        for (int i = 0; i < size; i++)
+        {
+                cout << "Enter the number in the array" << endl;
+                cin >> B[i];
+        }
+        for (int i = 0; i < size; i++)
+        {
+                cout << "Enter the number in the array" << endl;
+                cin >> C[i];
+        }
+
+
+        Intersection(A, B, size, a);
+
+
+        for (int i = 0; i < size; i++)
+        {
+                arr[0][i] = a[i];
+        }
+
+
+        Intersection(A, C, size, a);
+
+
+        for (int i = 0; i < size; i++)
+        {
+                arr[1][i] = a[i];
+        }
+        Intersection(C, A, size, a);
+
+
+        for (int i = 0; i < size; i++)
+        {
+                arr[2][i] = a[i];
+        }
+
+
+        //OutPut
+
+
+        cout << "Output: ";
+
+
+        for (int i = 0; i < size; i++)
+        {
+                for (int j = 0; j < size; j++)
+                {
+                        if (arr[i][j] >= 0)
+                        {
+                                cout << arr[i][j] << " ";
+                        }
+                }
+                cout << endl;
+        }
+        system("pause");
+        return 0;
+}
+
+
+
+
+Problem # 2(A)
+
+
+#include<iostream>
+using namespace std;
+
+
+void length(char *arr, int &lengthofArray , int size){
+        for (int i = 0; i < size; i++){
+                if (arr[i] == '\0'){
+                        break;
+                }
+                lengthofArray++;
+        }
+}
+
+
+bool Check(char *arr1, char *arr2, int lengthofArray1, int lengthofArray2){
+        int j = 0;
+        if (lengthofArray1 == lengthofArray2){
+                while (true){
+                        for (int i = 0; i < lengthofArray1; i++){
+                                if (arr1[i] != arr2[i]){
+                                        break;
+                                }
+                                j++;
+                        }
+                        if (lengthofArray1 == j)
+                        return true;
+                }
+        }
+        else {
+                return false;
+        }
+}
+
+
+int main() {
+        bool c;
+        int lengthofArray1 = 0;
+        int lengthofArray2 = 0;
+        int size1, size2;
+        cout << "Enter Array 1 Size: ";
+        cin >> size1;
+        char *arr1 = new char[size1];
+        cin >> arr1;
+        cout << "Enter Array 1 Size: ";
+        cin >> size2;
+        char *arr2 = new char[size2];
+        cin >> arr2;
+        length(arr1, lengthofArray1,size1);
+        length(arr2, lengthofArray2, size2);
+        cout << "Array 1 Has " << lengthofArray1 << " Array 2 Has " << lengthofArray2;
+        c = Check(arr1, arr2, lengthofArray1, lengthofArray2);
+        if (c == true){
+                cout << "It is Same" << endl;
+        }
+        else{
+                cout << "It is not Same" << endl;
+        }
+        system("pause");
+        return 0;
+}
+
+
+
+
+Problem # 2(B)
+ 
+#include<iostream>
+using namespace std;
+
+
+bool Palindrome(char *arr, int size){
+        int j = size;
+        for (int i = 0; i < size / 2; i++){
+                if (arr[i] != arr[j]){
+                        return false;
+                }
+        }
+        return true;
+}
+
+
+int main() {
+        bool c;
+        int size;
+        cout << "Enter Array Size: ";
+        cin >> size;
+        char *arr = new char[size];
+        cin >> arr;
+        cout << arr << endl;
+        c = Palindrome(arr, size);
+        if (c == true){
+                cout << "It is Palindrome " << endl;
+        }
+        else{
+                cout << "It is not Palindrome " << endl;
+        }
+        system("pause");
+        return 0;
+}
+
+
+Problem # 3:
+
+
+#include<iostream>
+using namespace std;
+
+
+void Arr_Input(int **arr, int s){
+        for (int i = 0; i < s; i++)
+        {
+                for (int j = 0; j < s; j++)
+                {
+                        cout << "Enter the number" << endl;
+                        cin >> arr[i][j];
+                }
+        }
+        for (int i = 0; i < s; i++)
+        {
+                for (int j = 0; j < s; j++)
+                {
+                        cout << "Enter the number" << endl;
+                        cin >> arr[i][j];
+                }
+        }
+}
+
+
+void matrix_is_upper_triangular(int** a, int size, int &flag)
+{
+        int check = 0;
+        for (int i = 0; i < size; i++)
+        {
+                for (int j = 0; i != j; j++)
+                {
+                        if (a[i][j] == 0)
+                        {
+                                check = 1;
+                        }
+                        else
+                        {
+                                flag == 1;
+                                break;
+                        }
+                }
+                if (flag != 0){
+                        break;
+                }
+        }
+}
+
+
+void Check(int flag){
+        if (flag == 0)
+        {
+                cout << "The matrix is upper-triangular" << endl;
+        }
+        else
+        {
+                cout << "The matrix is not an upper-triangular" << endl;
+        }
+}
+
+
+int main()
+{
+        int s, flag = 0;
+        cout << "Enter the size: ";
+        cin >> s;
+        int ** arr;
+        arr = new int*[s];
+        for (int i = 0; i < s; i++)
+        {
+                arr[i] = new int[s];
+        }
+        Arr_Input(arr, s);
+        matrix_is_upper_triangular(arr, s, flag);
+        Check(flag);
+        system("pause");
+        return 0;
+}

@@ -1,0 +1,209 @@
+Task#1:
+
+#include <iostream>
+using namespace std;
+
+class Box
+{
+public:
+	Box(int, int, int);
+	static int obj_count;
+	void setter();
+	int length_getter();
+	int breath_getter();
+	int height_getter();
+	static int get_count();
+	double Volume();
+	double Area();
+private:
+	int length;
+	int breath;
+	int height;
+};
+int Box::obj_count;
+Box::Box(int lenght = 0, int breadth = 0, int height = 0)
+{
+	this->length = lenght;
+	this->breath = breadth;
+	this->height = height;
+}
+
+void Box::setter() {
+	cout << "Enter Length: ";
+	cin >> length;
+	cout << "Enter Breath: ";
+	cin >> breath;
+	cout << "Enter Height: ";
+	cin >> height;
+}
+
+
+int Box::length_getter() {
+	return length;
+}
+
+int Box::breath_getter() {
+	return breath;
+}
+
+int Box::height_getter() {
+	return height;
+}
+
+int Box::get_count() {
+	obj_count++;
+	return obj_count;
+}
+
+double Box::Volume() {
+	double volume;
+	volume = (length_getter() * breath_getter() * height_getter());
+	return volume;
+}
+
+double Box::Area() {
+	double area;
+	area = (2 * (length_getter() * breath_getter()) + 2 * (length_getter() * height_getter()) + 2 * (breath_getter() * height_getter()));
+	return area;
+}
+
+
+
+
+
+
+int main() {
+	Box B1, B2, B3;
+	B1.setter();
+	cout << "Volume Is :   " << B1.Volume() << endl;;
+	cout << "Area Is:   " << B1.Area() << endl;
+	cout << "Object No: " << B1.get_count() << endl;
+	B2.setter();
+	cout << "Volume Is :   " << B2.Volume() << endl;
+	cout << "Area Is:   " << B2.Area() << endl;
+	cout << "Object No: " << B2.get_count() << endl;
+	B3.setter();
+	cout << "Volume Is :   " << B3.Volume() << endl;
+	cout << "Area Is:   " << B3.Area() << endl;
+	cout << "Object No: " << B3.get_count() << endl;
+	return 0;
+}
+
+
+Task: 2
+
+
+#include <iostream>
+using namespace std;
+
+class Duration
+{
+public:
+	Duration(int, int, int, int);
+	Duration& setdate();
+	Duration& setmonth();
+	Duration& setyear();
+	Duration& set_salary();
+	int get_duration();
+	int date_getter();
+	int month_getter();
+	int year_getter();
+	int salary_getter();
+	int new_salary();
+	~Duration();
+
+private:
+	int date;
+	int month;
+	int year;
+	int salary;
+	int current_year;
+	int current_date;
+	int current_month;
+};
+
+
+Duration::Duration(int d = 0, int m = 0, int y = 0, int s = 0)
+{
+	this->date = d;
+	this->month = m;
+	this->year = y;
+	this->salary = s;
+	current_year = 2022;
+	current_date = 15;
+	current_month = 4;
+}
+
+Duration& Duration::setdate() {
+	while (date < 1 || date >32) {
+		cout << "Enter Date: ";
+		cin >> date;
+	}
+	return *this;
+}
+Duration& Duration::setmonth() {
+	while (month < 1 || month > 12) {
+		cout << "Enter Month: ";
+		cin >> month;
+	}
+	return *this;
+}
+
+Duration& Duration::setyear() {
+	while (year < 1 || year > 2022) {
+		cout << "Enter Month: ";
+		cin >> year;
+	}
+	return *this;
+}
+
+Duration& Duration::set_salary() {
+	cout << "Enter Salary: ";
+	cin >> salary;
+	return *this;
+}
+
+
+
+int Duration::date_getter() {
+	return date;
+}
+int Duration::month_getter() {
+	return month;
+}
+int Duration::year_getter() {
+	return year;
+}
+int Duration::salary_getter() {
+	return salary;
+}
+
+int Duration::get_duration() {
+	int duration;
+	duration = current_year - year;
+	return duration;
+}
+
+int Duration::new_salary() {
+	cout << "The Exiting Salary of the person:  " << salary << endl;
+	if ((get_duration()) >= 3 && (get_duration()) < 5) {
+		salary = salary + (0.07 * salary);
+	}
+	else {
+		salary = salary + (0.1 * salary);
+	}
+	return salary;
+}
+
+
+Duration::~Duration()
+{
+}
+
+int main() {
+	Duration e1;
+	e1.setdate().setmonth().setyear().set_salary();
+	cout << "Employee Duration is:  " << e1.get_duration() << endl;
+	cout << "The New Salary of the Employee: " << e1.new_salary() << endl;
+
+}
