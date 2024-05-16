@@ -5,12 +5,10 @@
   <strong>I am a student at FAST-NUCES</strong>
 </p>
 
-
 <div align="center">
 
 # University Assignments and Labs Repository
 </div>
-
 
 Welcome to my GitHub repository containing all my assignments and lab exercises for my university courses. Here, you'll find projects, assignments, and lab materials across multiple programming and computing courses, including:
 
@@ -45,10 +43,17 @@ Welcome to my GitHub repository containing all my assignments and lab exercises 
     - Hands-on implementation exercises
 
 7. **PHP**
-    - Web development with PHP
-    - Database connections and server-side programming
-    - Building dynamic websites
+    - Array key handling
 
+8. **Computer Networks**
+    - Network models and protocols
+    - Socket programming and network simulations
+    - Lab exercises and practical implementations
+
+9. **Database Systems**
+    - SQL and database design principles
+    - Normalization and database management
+    - Lab tasks and database projects
 
 ## Contributions
 While the primary purpose of this repository is personal academic learning, I welcome contributions for improvements. Feel free to open an issue or submit a pull request.
@@ -58,6 +63,6 @@ These assignments and labs represent academic coursework. Please use this reposi
 
 ## Contact
 For any questions or concerns, feel free to reach out to me via GitHub issues or email.
-- mlkabawan336@gnail.com
+GitHub: [abawan7](https://github.com/abawan7)  
+Email: [mlkabawan336@gmail.com](mailto:mlkabawan336@gmail.com)
 Thank you for visiting!
-
