@@ -1,0 +1,46 @@
+select * from Student
+select * from Attendance
+
+alter table Attendance add constraint Att_FK
+foreign key (RollNum)
+references Student (RollNum)
+on update cascade
+on delete no action
+
+delete from Attendance
+Where RollNum='21L-5297';
+
+Insert into Attendance
+Values ('21L-5297' , '12-12-2010', 'P', '2')
+
+alter table Student drop column Phone
+
+alter table Student add WarningCount int;
+
+insert into Student
+Values('21L-2334','Fozan Shahid','Male','3.2') --Error converting varchar value to datatype int
+
+--Solution
+insert into Student
+Values('21L-2334','Fozan Shahid','Male',Null)
+
+insert into ClassVenue --Valid
+values (3,'CS',5,'Ali')
+
+update Teacher
+set Name='Dr.Kashif Zafar'
+Where Name='Kashif Zafar'
+
+delete from Student --Valid
+Where RollNum='21L-2334';
+
+delete from Student --Invalid
+Where RollNum='21L-7722';
+
+delete from Attendance
+Where RollNum='21L-5297'and Status='P'
+
+alter table Teacher add constraint UQ unique (Name)
+
+alter table Student add constraint gen check (Gender in ('Male','Female'))
+alter table Attendance add constraint Att check (Status in ('P','A'))

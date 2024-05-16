@@ -1,0 +1,74 @@
+--1:
+
+SELECT * 
+FROM hotel 
+WHERE city = 'London' 
+ORDER BY hotelname DESC;
+
+--2:
+
+SELECT * 
+FROM hotel 
+WHERE SUBSTRING(hotelname, 3, 1) = 't';
+
+--3:
+
+SELECT * 
+FROM booking 
+WHERE dateto IS NULL;
+
+--4:
+SELECT guestname, guestaddress 
+FROM guest
+WHERE 
+    guestaddress LIKE '%Glasgow' AND 
+    (guestname LIKE 'Tony%' OR guestname LIKE '%Farrel');
+
+
+--5:
+
+SELECT roomno, hotelno 
+FROM booking 
+WHERE datefrom BETWEEN '05-01-01' AND '10-12-31';
+
+--6:
+SELECT roomno 
+FROM room 
+WHERE hotelno = 'fb01' AND type = 'single' AND price BETWEEN 20 AND 40;
+
+--7:
+
+SELECT roomno, hotelno 
+FROM room 
+WHERE price = (SELECT MAX(price) FROM room);
+
+
+--8:
+'+' Operator:
+SELECT 
+    'The hotel whose id is ' + hotelno + ' is in ' + city + ' and its name is ' + hotelname AS description
+FROM hotel;
+
+
+Concat:
+SELECT 
+    'The hotel whose id is ' || hotelno || ' is in ' || city || ' and its name is ' || hotelname
+FROM hotel;
+
+
+
+--9:
+
+SELECT r1.hotelno 
+FROM room r1 
+JOIN room r2 ON r1.hotelno = r2.hotelno 
+WHERE r1.type = 'double' AND r2.type = 'family';
+
+10: 
+
+SELECT r1.hotelno
+FROM room r1
+JOIN room r2 ON r1.hotelno = r2.hotelno 
+WHERE r1.type = 'single' AND r2.type = 'double'
+AND r1.hotelno NOT IN (SELECT hotelno FROM room WHERE type = 'family');
+
