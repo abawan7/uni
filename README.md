@@ -54,6 +54,11 @@ Welcome to my GitHub repository containing all my assignments and lab exercises 
     - SQL and database design principles
     - Normalization and database management
     - Lab tasks and database projects
+    
+10. **Quantum Computing**
+    - Quantum algorithms and quantum circuit design
+    - Noise models and backend simulations
+    - Project proposals and executable code in Jupyter notebooks
 
 ## Contributions
 While the primary purpose of this repository is personal academic learning, I welcome contributions for improvements. Feel free to open an issue or submit a pull request.
