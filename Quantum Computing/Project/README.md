@@ -34,14 +34,15 @@ The Quantum Entanglement and Decoherence Simulator is designed to explore quantu
 - **Noise Model:** Employs depolarizing noise to simulate environmental interference, introducing an error probability of 0.02 per gate operation.
 
 ### Computational Backends
-1. **Aer Simulator:** Tests the circuit in an ideal, noise-free environment to establish baseline behaviors.
+1. **Qiskit Aer Simulator(QASM):** Tests the circuit in an ideal, noise-free environment to establish baseline behaviors.
 2. **IBM Quantum Computer (e.g., ibmq_manila):** Provides a real-world context where actual device characteristics and noise influence the outcomes.
 
 ### Visualization Techniques
 - **State Vector Visualization:** Allows observing the probability amplitudes for each state of the system, useful in analyzing pre and post-noise effects.
 - **Quantum Sphere Visualization:** Offers a geometric representation of qubit states, helping visualize the impact of gates and noise.
 
-## Installation Instructions
+## Hand-Drawn Circuit Diagram
+<img src="https://github.com/abawan7/quantum-entanglement-and-decoherence-simulator/blob/main/Circuit.png" alt="Hand-Drawn Circuit Diagram" width="320"/>
 
 ### Prerequisites
 Before you start, ensure that you have Anaconda installed on your system. Anaconda simplifies package management and deployment and helps manage different project environments. If you do not have Anaconda installed, follow the steps below to download and install it.
