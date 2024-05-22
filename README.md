@@ -59,6 +59,9 @@ Welcome to my GitHub repository containing all my assignments and lab exercises 
     - Quantum algorithms and quantum circuit design
     - Noise models and backend simulations
     - Project proposals and executable code in Jupyter notebooks
+    
+11. **Parallel and Distributed Computing**
+    - SDN (Software-Defined Networking) projects
 
 ## Contributions
 While the primary purpose of this repository is personal academic learning, I welcome contributions for improvements. Feel free to open an issue or submit a pull request.
