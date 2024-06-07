@@ -63,10 +63,15 @@ Welcome to my GitHub repository containing all my assignments and lab exercises 
 11. **Parallel and Distributed Computing**
     - SDN (Software-Defined Networking) projects
     
-12 **Software Engineering**
-    -Banking Web App Project Prposal
-    -Project Phases (SRS,FIGMA,Test Cases, Summary Report, Work Distribution)
-    -Project [Code](https://github.com/abawan7/banking-web-app)
+12. Software Engineering
+- Banking Web App Project Proposal
+- Project Phases
+  - SRS (Software Requirements Specification)
+  - FIGMA (Design Prototyping)
+  - Test Cases
+  - Summary Report
+  - Work Distribution
+- Project [Code](https://github.com/abawan7/banking-web-app)
     
 ## Contributions
 While the primary purpose of this repository is personal academic learning, I welcome contributions for improvements. Feel free to open an issue or submit a pull request.
