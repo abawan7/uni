@@ -63,7 +63,7 @@ Welcome to my GitHub repository containing all my assignments and lab exercises 
 11. **Parallel and Distributed Computing**
     - SDN (Software-Defined Networking) projects
     
-12. Software Engineering
+12. **Software Engineering**
 - Banking Web App Project Proposal
 - Project Phases
   - SRS (Software Requirements Specification)
