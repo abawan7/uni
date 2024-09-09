@@ -67,6 +67,9 @@ Welcome to my GitHub repository containing all my assignments and lab exercises 
     -Banking Web App Project Prposal
     -Project Phases (SRS,FIGMA,Test Cases, Summary Report, Work Distribution)
     -Project [Code](https://github.com/abawan7/banking-web-app)
+
+12 **Data Science**
+    -Web Scraping Assignments
     
 ## Contributions
 While the primary purpose of this repository is personal academic learning, I welcome contributions for improvements. Feel free to open an issue or submit a pull request.
